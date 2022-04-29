@@ -14,6 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::resource('products', \App\Http\Controllers\Api\ProductController::class)->only(['index','show','destroy','update','store']);
+Route::resource('categories', \App\Http\Controllers\Api\CategoryController::class)->only(['index','show','destroy','update','store']);
